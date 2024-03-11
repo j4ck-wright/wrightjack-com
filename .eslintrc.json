@@ -1,3 +1,20 @@
 {
-  "extends": "next/core-web-vitals"
+    "extends": [
+        "next/core-web-vitals",
+        "eslint:recommended",
+        "plugin:jsx-a11y/recommended",
+        "prettier"
+    ],
+    "rules": {
+        "sort-imports": "error",
+        "sort-keys": [
+            "error",
+            "asc",
+            {
+                "natural": true
+            }
+        ]
+    },
+    "plugins": ["jsx-a11y"],
+    "parserOptions": { "warnOnUnsupportedTypeScriptVersion": false }
 }
