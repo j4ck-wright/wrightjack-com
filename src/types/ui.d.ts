@@ -1,5 +1,5 @@
 export namespace UI {
-    export type cta = {
+    export type Cta = {
         text?: string;
         href?: string;
     };
