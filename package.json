@@ -10,8 +10,7 @@
         "lint:fix": "next lint --fix",
         "prettier": "prettier . --check",
         "prettier:fix": "yarn prettier --write",
-        "format": "yarn prettier:fix && yarn lint:fix",
-        "prepare": "husky install"
+        "format": "yarn prettier:fix && yarn lint:fix"
     },
     "dependencies": {
         "next": "14.1.3",
