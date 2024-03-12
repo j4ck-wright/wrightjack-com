@@ -1,8 +1,7 @@
+// import './globals.css';
 import './globals.css';
 
 import type { Metadata } from 'next';
-
-import { Navbar } from '@/components/Navbar';
 
 import { Urbanist } from 'next/font/google';
 
@@ -13,12 +12,6 @@ export const metadata: Metadata = {
     title: 'Create Next App',
 };
 
-const NavbarCtas = [
-    { href: '/', text: 'Home' },
-    { href: '/projects', text: 'Projects' },
-    { href: '/notes', text: 'Notes' },
-];
-
 export default function RootLayout({
     children,
 }: Readonly<{
@@ -26,10 +19,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={urbanist.className}>
-                <Navbar ctas={NavbarCtas} />
-                {children}
-            </body>
+            <body className={urbanist.className}>{children}</body>
         </html>
     );
 }
