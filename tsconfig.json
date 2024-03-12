@@ -39,6 +39,7 @@
         "next-env.d.ts",
         "**/*.ts",
         "**/*.tsx",
+        "**/*.spec.tsx",
         ".next/types/**/*.ts",
         "postcss.config.ts"
     ],
