@@ -2,13 +2,13 @@ import Footer from '@/components/Footer';
 import { Navbar } from '@/components/Navbar';
 import { UI } from '@/types/ui';
 
-const NavbarCtas: UI.Cta[] = [
+const navbarCtas: UI.Cta[] = [
     { href: '/', text: 'Home' },
     { href: '/projects', text: 'Projects' },
     { href: '/notes', text: 'Notes' },
 ];
 
-const FooterCtas: UI.MediaIcon[] = [
+const footerCtas: UI.MediaIcon[] = [
     { alt: 'Twitter', href: '/', media: 'Twitter' },
     { alt: 'LinkedIn', href: '/', media: 'LinkedIn' },
     { alt: 'Github', href: '/', media: 'Github' },
@@ -21,9 +21,9 @@ export default function Layout({
 }>) {
     return (
         <>
-            <Navbar ctas={NavbarCtas} />
+            <Navbar ctas={navbarCtas} />
             <main>{children}</main>
-            <Footer ctas={FooterCtas} />
+            <Footer ctas={footerCtas} />
         </>
     );
 }
