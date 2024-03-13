@@ -22,7 +22,7 @@ export default function Layout({
     return (
         <>
             <Navbar ctas={navbarCtas} />
-            <main>{children}</main>
+            <main className="pb-24">{children}</main>
             <Footer ctas={footerCtas} />
         </>
     );
