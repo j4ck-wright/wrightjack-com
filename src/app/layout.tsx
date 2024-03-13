@@ -19,7 +19,9 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={urbanist.className}>{children}</body>
+            <body className={`${urbanist.className} relative min-h-screen`}>
+                {children}
+            </body>
         </html>
     );
 }
