@@ -18,7 +18,6 @@ export class PostHandler {
 
     private readFile(slug: string) {
         const content = readFileSync(`posts/${slug}/body.mdx`, 'utf-8');
-        console.log(content);
         return content;
     }
 
