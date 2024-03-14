@@ -1,4 +1,4 @@
-import '@/app/article.css';
+import '@/styles/article.css';
 
 import { Post } from '@/types/post';
 import { compileMDX } from 'next-mdx-remote/rsc';
