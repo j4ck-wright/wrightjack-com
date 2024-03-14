@@ -1,5 +1,5 @@
 import Footer from '@/components/Footer';
-import { Navbar } from '@/components/Navbar';
+import Navbar from '@/components/Navbar';
 import { UI } from '@/types/ui';
 
 const navbarCtas: UI.Cta[] = [
