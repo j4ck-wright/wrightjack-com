@@ -1,15 +1,17 @@
 import '@/app/article.css';
 
 import { Post } from '@/types/post';
-import { PostHandler } from '@/PostHandler';
 import { compileMDX } from 'next-mdx-remote/rsc';
+import { readFileSync } from 'fs';
 
 export default async function page({ params }: { params: { slug: string } }) {
-    const post = new PostHandler(params.slug);
+    const postContent = readFileSync(`posts/${params.slug}/body.mdx`, 'utf-8');
+
     const { content, frontmatter } = await compileMDX<Partial<Post.Metadata>>({
         options: { parseFrontmatter: true },
-        source: post.getContent(),
+        source: postContent,
     });
+
     return (
         <article>
             <h1>{frontmatter.title}</h1>
