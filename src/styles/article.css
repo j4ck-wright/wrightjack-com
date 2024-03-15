@@ -36,3 +36,27 @@ h5 {
 p {
     font-size: 1.25rem;
 }
+
+[data-highlighted-line] {
+    background-color: rgba(255, 230, 0, 0.287);
+}
+
+code {
+    counter-reset: line;
+}
+
+code > [data-line]::before {
+    counter-increment: line;
+    content: counter(line);
+    opacity: 0.4;
+    padding-right: 16px;
+    display: inline-block;
+}
+
+code {
+    padding: 1rem;
+}
+
+pre {
+    border-radius: 20px;
+}
