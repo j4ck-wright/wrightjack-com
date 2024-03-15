@@ -14,7 +14,8 @@
                 "natural": true
             }
         ],
-        "no-undef": "off"
+        "no-undef": "off",
+        "@next/next/no-img-element": "off"
     },
     "plugins": ["jsx-a11y"],
     "parserOptions": { "warnOnUnsupportedTypeScriptVersion": false }
