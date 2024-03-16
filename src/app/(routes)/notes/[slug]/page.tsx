@@ -1,8 +1,10 @@
 import '@/styles/article.css';
 
+import ArticleHeader from '@/components/ArticleComponents/ArticleHeader';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import SingleImageStretch from '@/components/ArticleComponents/SingleImageStretch';
 import { getPostBySlug } from '@/PostHandler';
+import { notFound } from 'next/navigation';
 import rehypePrettyCode from 'rehype-pretty-code';
 
 const rehypePrettyCodeOptions = {
@@ -18,15 +20,24 @@ const options = {
 
 export default function Post({ params }: { params: { slug: string } }) {
     const data = getPostBySlug(params.slug);
-    if (!data) {
-        return <h1>oh no!</h1>;
-    }
 
     const { metadata, content } = data;
 
+    if (!metadata.title) {
+        notFound();
+    }
+
     return (
         <article>
-            <h1>{metadata.title}</h1>
+            <ArticleHeader
+                author={{
+                    imageSrc: `/post-assets/authors/${metadata.author}.jpeg`,
+                    name: metadata.author,
+                }}
+                date={metadata.date}
+                timeToRead={metadata.minutes_to_read}
+                title={metadata.title}
+            />
 
             <MDXRemote
                 source={content}
