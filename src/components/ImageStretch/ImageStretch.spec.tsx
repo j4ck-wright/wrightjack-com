@@ -43,6 +43,8 @@ describe('ImageStretch', () => {
             '/my-picture'
         );
 
-        expect(screen.getByRole('figure').childElementCount).toEqual(2);
+        expect(screen.getByTestId('image-stretch').childElementCount).toEqual(
+            1
+        );
     });
 });
