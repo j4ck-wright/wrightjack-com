@@ -44,10 +44,14 @@ export default function Post({ params }: any) {
     const props = getPost(params);
 
     return (
-        <article className="prose prose-sm md:prose-base lg:prose-lg prose-slate !prose-invert mx-auto">
+        <article>
             <h1>{props.frontMatter.title}</h1>
 
-            <MDXRemote source={props.content} options={options} />
+            <MDXRemote
+                source={props.content}
+                options={options}
+                components={{ ImageStretch }}
+            />
         </article>
     );
 }
