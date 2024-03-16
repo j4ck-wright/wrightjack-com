@@ -44,9 +44,14 @@ export default function ArticleHeader({
                         alt=""
                     />
                     <div className="pl-2 flex-col right">
-                        <span className="block text-2xl">{author?.name}</span>
+                        <span aria-label="author" className="block text-2xl">
+                            {author?.name}
+                        </span>
                         {date && (
-                            <span className="text-base">
+                            <span
+                                aria-label="date published"
+                                className="text-base"
+                            >
                                 {formatDate(date)}
                             </span>
                         )}
@@ -61,6 +66,7 @@ export default function ArticleHeader({
                             xmlns="http://www.w3.org/2000/svg"
                             fillRule="evenodd"
                             clipRule="evenodd"
+                            aria-hidden
                         >
                             <path d="M12 0c6.623 0 12 5.377 12 12s-5.377 12-12 12-12-5.377-12-12 5.377-12 12-12zm0 1c6.071 0 11 4.929 11 11s-4.929 11-11 11-11-4.929-11-11 4.929-11 11-11zm0 11h6v1h-7v-9h1v8z" />
                         </svg>
