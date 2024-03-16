@@ -5,6 +5,7 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 import SingleImageStretch from '@/components/ArticleComponents/SingleImageStretch';
 import { getPostBySlug } from '@/PostHandler';
 import { notFound } from 'next/navigation';
+import { readdirSync } from 'fs';
 import rehypePrettyCode from 'rehype-pretty-code';
 
 const rehypePrettyCodeOptions = {
@@ -17,6 +18,16 @@ const options = {
         remarkPlugins: [],
     },
 };
+
+export async function generateStaticParams() {
+    const files = readdirSync('posts/');
+
+    const paths = files.map((filename) => ({
+        slug: filename.replace('.mdx', ''),
+    }));
+
+    return paths;
+}
 
 export default function Post({ params }: { params: { slug: string } }) {
     const data = getPostBySlug(params.slug);
