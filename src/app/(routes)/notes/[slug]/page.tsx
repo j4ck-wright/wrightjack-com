@@ -8,7 +8,7 @@ import { notFound } from 'next/navigation';
 import rehypePrettyCode from 'rehype-pretty-code';
 
 const rehypePrettyCodeOptions = {
-    theme: 'nord',
+    theme: 'one-dark-pro',
 };
 
 const options = {
