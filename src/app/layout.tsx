@@ -1,7 +1,9 @@
 import '@/styles/globals.css';
 
+import Footer from '@/components/Footer';
 import type { Metadata } from 'next';
-
+import Navbar from '@/components/Navbar';
+import { UI } from '@/types/ui';
 import { Urbanist } from 'next/font/google';
 
 const urbanist = Urbanist({ subsets: ['latin'] });
@@ -11,6 +13,18 @@ export const metadata: Metadata = {
     title: 'Create Next App',
 };
 
+const navbarCtas: UI.Cta[] = [
+    { href: '/', text: 'Home' },
+    { href: '/projects', text: 'Projects' },
+    { href: '/notes', text: 'Notes' },
+];
+
+const footerCtas: UI.MediaIcon[] = [
+    { alt: 'Twitter', href: '/', media: 'Twitter' },
+    { alt: 'LinkedIn', href: '/', media: 'LinkedIn' },
+    { alt: 'Github', href: '/', media: 'Github' },
+];
+
 export default function RootLayout({
     children,
 }: Readonly<{
@@ -19,7 +33,9 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={`${urbanist.className} relative min-h-screen`}>
-                {children}
+                <Navbar ctas={navbarCtas} />
+                <main className="pb-24">{children}</main>
+                <Footer ctas={footerCtas} />
             </body>
         </html>
     );
