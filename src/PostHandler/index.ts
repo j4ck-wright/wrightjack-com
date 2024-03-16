@@ -19,7 +19,6 @@ export const getPostBySlug = (slug: string) => {
     let markdownFile = '';
     try {
         markdownFile = fs.readFileSync(`posts/${slug}.mdx`, 'utf-8');
-        console.log(markdownFile);
     } catch (err: unknown) {
         notFound();
     }
