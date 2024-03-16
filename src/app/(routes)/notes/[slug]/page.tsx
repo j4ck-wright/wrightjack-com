@@ -1,7 +1,7 @@
 import '@/styles/article.css';
 
-import ImageStretch from '@/components/ImageStretch';
 import { MDXRemote } from 'next-mdx-remote/rsc';
+import SingleImageStretch from '@/components/ArticleComponents/SingleImageStretch';
 import { getPostBySlug } from '@/PostHandler';
 import rehypePrettyCode from 'rehype-pretty-code';
 
@@ -31,7 +31,7 @@ export default function Post({ params }: { params: { slug: string } }) {
             <MDXRemote
                 source={content}
                 options={options}
-                components={{ ImageStretch }}
+                components={{ SingleImageStretch }}
             />
         </article>
     );
