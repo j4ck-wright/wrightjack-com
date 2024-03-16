@@ -27,17 +27,9 @@ export default function ImageStretch({ alt, src, caption }: Props) {
                 />
             </div>
             {caption && (
-                <div className="flex justify-center pt-2 px-2">
-                    <span
-                        className={`max-w-[90%] ${!reveal && 'skeleton skeleton-text'}`}
-                    >
-                        <p
-                            className={`mb-0 text-base text-center italic ${!reveal && 'opacity-0'} `}
-                        >
-                            {caption}
-                        </p>
-                    </span>
-                </div>
+                <p className="max-w-[90%] mx-auto mb-0 pt-2 text-base text-center italic">
+                    {caption}
+                </p>
             )}
         </div>
     );
