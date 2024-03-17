@@ -1,4 +1,4 @@
-import React from 'react';
+import { SlClock } from 'react-icons/sl';
 
 type Author = {
     name?: string;
@@ -59,17 +59,12 @@ export default function ArticleHeader({
                 </div>
 
                 {timeToRead && (
-                    <div className="flex gap-2">
-                        <svg
-                            width="24"
-                            height="24"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fillRule="evenodd"
-                            clipRule="evenodd"
-                            aria-hidden
-                        >
-                            <path d="M12 0c6.623 0 12 5.377 12 12s-5.377 12-12 12-12-5.377-12-12 5.377-12 12-12zm0 1c6.071 0 11 4.929 11 11s-4.929 11-11 11-11-4.929-11-11 4.929-11 11-11zm0 11h6v1h-7v-9h1v8z" />
-                        </svg>
+                    <div className="flex items-center gap-2">
+                        <SlClock
+                            width={'20px'}
+                            height={'20px'}
+                            className="align-bottom"
+                        />
                         <span className="text-[#5d5d5d]">
                             {timeToRead} min read
                         </span>

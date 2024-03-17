@@ -3,22 +3,19 @@ import Footer from '.';
 import { UI } from '@/types/ui';
 
 const footerCtas: UI.MediaIcon[] = [
-    { alt: 'Twitter', href: '/', media: 'Twitter' },
-    { alt: 'LinkedIn', href: '/', media: 'LinkedIn' },
-    { alt: 'Github', href: '/', media: 'Github' },
+    { alt: 'Twitter', href: '/twit', media: 'Twitter' },
+    { alt: 'LinkedIn', href: '/linked', media: 'LinkedIn' },
+    { alt: 'Github', href: '/github', media: 'Github' },
 ];
-
-vi.mock('@/components/IconCta', () => ({
-    default: () => {
-        return <div>IconCta</div>;
-    },
-}));
 
 describe('Footer', () => {
     it('Renders correctly', () => {
         render(<Footer ctas={footerCtas} />);
-        expect(screen.getAllByText('IconCta').length).toEqual(
-            footerCtas.length
-        );
+
+        footerCtas.forEach(({ alt, href }) => {
+            expect(
+                screen.queryByTitle(alt as string)?.getAttribute('href')
+            ).toEqual(href);
+        });
     });
 });
