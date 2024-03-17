@@ -1,6 +1,7 @@
 import '@/styles/article.css';
 
 import ArticleHeader from '@/components/ArticleComponents/ArticleHeader';
+import DualImage from '@/components/ArticleComponents/DualImage';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import SingleImageStretch from '@/components/ArticleComponents/SingleImageStretch';
 import { getPostBySlug } from '@/PostHandler';
@@ -53,7 +54,7 @@ export default function Post({ params }: { params: { slug: string } }) {
             <MDXRemote
                 source={content}
                 options={options}
-                components={{ SingleImageStretch }}
+                components={{ DualImage, SingleImageStretch }}
             />
         </article>
     );

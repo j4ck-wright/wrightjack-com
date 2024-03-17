@@ -19,7 +19,7 @@ export default function ImageStretch({
 }: Props) {
     const [reveal, setReveal] = useState(false);
     return (
-        <div data-testid="image-stretch" className="mb-4">
+        <div data-testid="image-stretch" className="my-4">
             <div className={`relative aspect-[16/8]`}>
                 {!reveal && <div className="skeleton" />}
                 <Image
