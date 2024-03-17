@@ -13,15 +13,15 @@ type Props = {
 
 export default function DualImage(props: Props) {
     return (
-        <div className="flex justify-between gap-6">
-            <div className="w-[50%]">
+        <div className="flex flex-col justify-between md:gap-6 md:flex-row">
+            <div className="md:w-[50%]">
                 <ImageStretch
                     src={props.leftSrc}
                     alt={props.leftAlt}
                     caption={props.leftCaption}
                 />
             </div>
-            <div className="w-[50%]">
+            <div className="md:w-[50%]">
                 <ImageStretch
                     src={props.rightSrc}
                     alt={props.rightAlt}
