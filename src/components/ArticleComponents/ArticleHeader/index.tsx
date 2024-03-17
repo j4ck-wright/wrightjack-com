@@ -34,7 +34,7 @@ export default function ArticleHeader({
     timeToRead,
 }: Partial<Props>) {
     return (
-        <header className="pb-16 pt-24">
+        <header className="py-8 md:pb-16 md:pt-24">
             <h1 className="text-4xl pb-5">{title}</h1>
             <div className="flex justify-between items-center">
                 <div className="flex items-center left">
