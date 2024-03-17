@@ -16,12 +16,6 @@ const metadataItemExists = (
 };
 
 describe('Post checking', () => {
-    beforeAll(() => {
-        vi.clearAllMocks();
-        vi.resetAllMocks();
-        vi.restoreAllMocks();
-    });
-
     const allPosts = getAllPosts();
 
     it('contains required metadata', () => {
