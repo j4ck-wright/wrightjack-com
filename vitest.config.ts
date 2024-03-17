@@ -14,6 +14,8 @@ export default defineConfig({
                 '.next',
                 '.husky',
                 '*.config.{js,ts,mjs}',
+                'src/app/robots.ts',
+                'src/app/sitemap.ts',
             ],
             provider: 'istanbul',
         },
