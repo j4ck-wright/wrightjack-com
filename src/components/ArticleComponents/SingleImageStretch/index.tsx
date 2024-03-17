@@ -8,9 +8,15 @@ type Props = {
     src: string;
     alt?: string;
     caption?: string;
+    priority?: boolean;
 };
 
-export default function ImageStretch({ alt, src, caption }: Props) {
+export default function ImageStretch({
+    alt,
+    src,
+    caption,
+    priority = false,
+}: Props) {
     const [reveal, setReveal] = useState(false);
     return (
         <div data-testid="image-stretch" className="mb-4">
@@ -23,6 +29,7 @@ export default function ImageStretch({ alt, src, caption }: Props) {
                     loading="eager"
                     onError={() => setReveal(true)}
                     onLoad={() => setReveal(true)}
+                    priority={priority}
                     className="align-top"
                 />
             </div>
