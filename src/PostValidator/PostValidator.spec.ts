@@ -1,5 +1,6 @@
 import { Post } from '@/types/post';
-import { getAllPosts } from '.';
+import { checkHeaderOrder } from './helpers';
+import { getAllPosts } from '@/PostHandler';
 
 const prefix = '[POST-VALIDATION]:';
 
@@ -32,6 +33,18 @@ describe('Post checking', () => {
             if (pattern.test(content)) {
                 throw new Error(
                     `${prefix} ${slug}.mdx contains one or more header 1. h1 is reserved for the ArticleHeader\n`
+                );
+            }
+        });
+    });
+
+    it('follows headers in order', () => {
+        allPosts.forEach(({ content, slug }) => {
+            const correctOrder = checkHeaderOrder(content);
+
+            if (!correctOrder) {
+                throw new Error(
+                    `${prefix} ${slug}.mdx has incorrect header ordering. Check if you've missed a header or have a higher header nested in a lower one`
                 );
             }
         });
