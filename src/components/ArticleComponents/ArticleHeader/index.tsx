@@ -35,8 +35,8 @@ export default function ArticleHeader({
 }: Partial<Props>) {
     return (
         <header className="pb-16 pt-24">
-            <h1 className="text-4xl font-bold pb-5">{title}</h1>
-            <div className="flex justify-between items-center text-[#5d5d5d]">
+            <h1 className="text-4xl pb-5">{title}</h1>
+            <div className="flex justify-between items-center">
                 <div className="flex items-center left">
                     <img
                         className="rounded-full w-[50px] h-[50px] aspect-square"
