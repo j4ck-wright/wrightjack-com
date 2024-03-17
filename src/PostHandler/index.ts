@@ -15,6 +15,13 @@ const processFile = (file: string) => {
     };
 };
 
+export const getAllPosts = () => {
+    const files = fs.readdirSync('posts/');
+    return files?.map((filename) => {
+        return getPostBySlug(filename.replace('.mdx', ''));
+    });
+};
+
 export const getPostBySlug = (slug: string) => {
     let markdownFile = '';
     try {

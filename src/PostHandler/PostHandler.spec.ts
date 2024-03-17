@@ -1,6 +1,6 @@
+import { getAllPosts, getPostBySlug } from '.';
 import { Mock } from 'vitest';
 import fs from 'fs';
-import { getPostBySlug } from '.';
 import { notFound } from 'next/navigation';
 
 vi.mock('gray-matter', () => ({
@@ -44,6 +44,32 @@ describe('PostHandler', () => {
 
             getPostBySlug('1');
             expect(notFound).toHaveBeenCalledOnce();
+        });
+    });
+
+    describe('getAllPosts', () => {
+        afterEach(() => {
+            vi.clearAllMocks();
+        });
+
+        it('fetches all posts', () => {
+            const dirFixture = ['example.mdx', 'example2.mdx', 'example3.mdx'];
+
+            vi.mocked(fs.readdirSync).mockReturnValueOnce(dirFixture as any[]);
+
+            const posts = getAllPosts();
+
+            posts.forEach(({ slug }, index) => {
+                expect(slug).toEqual(dirFixture[index]?.replace('.mdx', ''));
+            });
+        });
+
+        it('fetches empty array when no posts', () => {
+            vi.mocked(fs.readdirSync).mockReturnValueOnce([]);
+
+            const posts = getAllPosts();
+
+            expect(posts.length).toEqual(0);
         });
     });
 });
