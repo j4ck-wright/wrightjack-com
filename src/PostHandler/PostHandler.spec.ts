@@ -3,8 +3,6 @@ import fs from 'fs';
 import { getPostBySlug } from '.';
 import { notFound } from 'next/navigation';
 
-vi.mock('fs');
-
 vi.mock('gray-matter', () => ({
     default: vi.fn().mockReturnValue({
         content: 'markdown content',
@@ -18,26 +16,34 @@ vi.mock('gray-matter', () => ({
     }),
 }));
 
+vi.mock('fs');
+
 describe('PostHandler', () => {
-    it('fetches post via slug', () => {
-        const inputSlug = 'test-example';
-        const { metadata, content, slug } = getPostBySlug(inputSlug);
-
-        expect(slug).toEqual(inputSlug);
-        expect(metadata.author).toEqual('Example Author');
-        expect(content).toEqual('markdown content');
-    });
-
-    it('returns 404 if slug not found', () => {
-        vi.mock('next/navigation', () => ({
-            notFound: vi.fn(),
-        }));
-
-        (fs.readFileSync as Mock).mockImplementationOnce(() => {
-            throw new Error('Mocked file read error');
+    describe('postBySlug', () => {
+        afterEach(() => {
+            vi.clearAllMocks();
         });
 
-        getPostBySlug('1');
-        expect(notFound).toHaveBeenCalledOnce();
+        it('fetches correctly', () => {
+            const inputSlug = 'test-example';
+            const { metadata, content, slug } = getPostBySlug(inputSlug);
+
+            expect(slug).toEqual(inputSlug);
+            expect(metadata.author).toEqual('Example Author');
+            expect(content).toEqual('markdown content');
+        });
+
+        it('returns 404', () => {
+            vi.mock('next/navigation', () => ({
+                notFound: vi.fn(),
+            }));
+
+            (fs.readFileSync as Mock).mockImplementationOnce(() => {
+                throw new Error('Mocked file read error');
+            });
+
+            getPostBySlug('1');
+            expect(notFound).toHaveBeenCalledOnce();
+        });
     });
 });
