@@ -28,11 +28,3 @@ export const checkHeaderOrder = (ctx: string) => {
     }
     return true;
 };
-
-/*
-
-# one
-## two
-### three
-
-*/
