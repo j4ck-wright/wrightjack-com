@@ -68,6 +68,7 @@ export default function ArticleHeader({
                             width={'20px'}
                             height={'20px'}
                             className="align-bottom"
+                            aria-hidden
                         />
                         <span className="text-[#5d5d5d]">
                             {timeToRead} min read
