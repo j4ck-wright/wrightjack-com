@@ -1,4 +1,6 @@
+import { Post } from '@/types/post';
 import { SlClock } from 'react-icons/sl';
+import { getCategoryColor } from '@/utils/categoryColor';
 
 type Author = {
     name?: string;
@@ -10,6 +12,7 @@ type Props = {
     author: Author;
     date: string;
     timeToRead: number;
+    categories?: Post.Categories[];
 };
 
 const formatDate = (date: string) => {
@@ -32,6 +35,7 @@ export default function ArticleHeader({
     date,
     title,
     timeToRead,
+    categories,
 }: Partial<Props>) {
     return (
         <header className="py-8 md:pb-16 md:pt-24">
@@ -71,6 +75,31 @@ export default function ArticleHeader({
                     </div>
                 )}
             </div>
+
+            {categories && (
+                <ul
+                    aria-label="categories"
+                    className="pt-4 flex flex-wrap gap-2"
+                >
+                    {categories.map((category, index) => {
+                        const { background, border, text } =
+                            getCategoryColor(category);
+                        return (
+                            <li
+                                className="py-1 px-3 text-sm border-b-4"
+                                style={{
+                                    background: background,
+                                    borderColor: border,
+                                    color: text,
+                                }}
+                                key={index}
+                            >
+                                {category}
+                            </li>
+                        );
+                    })}
+                </ul>
+            )}
         </header>
     );
 }

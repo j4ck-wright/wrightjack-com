@@ -49,6 +49,7 @@ export default function Post({ params }: { params: { slug: string } }) {
                 date={metadata.date}
                 timeToRead={metadata.minutes_to_read}
                 title={metadata.title}
+                categories={metadata.categories}
             />
 
             <MDXRemote

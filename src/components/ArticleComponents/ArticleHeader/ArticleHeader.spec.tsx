@@ -19,6 +19,7 @@ describe('ArticleHeader', () => {
                 date={headerFixture.date}
                 timeToRead={headerFixture.minutes_to_read}
                 title={headerFixture.title}
+                categories={['JavaScript', 'CI/CD', 'NextJs', 'TypeScript']}
             />
         );
 
@@ -26,6 +27,11 @@ describe('ArticleHeader', () => {
         screen.getByText(headerFixture.author);
         screen.getByText(`${headerFixture.minutes_to_read} min read`);
         screen.getByText('Saturday, 16 Mar 2024');
+        screen.getByText('JavaScript');
+        screen.getByText('CI/CD');
+        screen.getByText('NextJs');
+        screen.getByText('TypeScript');
+
         expect(screen.getByRole('img').getAttribute('src')).toEqual(
             'author-img'
         );
@@ -72,5 +78,17 @@ describe('ArticleHeader', () => {
         );
 
         expect(screen.queryByText('min read')).toBeNull();
+    });
+
+    it('Does not render categories', () => {
+        render(
+            <ArticleHeader
+                author={{ imageSrc: 'author-img', name: headerFixture.author }}
+                date={headerFixture.date}
+                title={headerFixture.title}
+            />
+        );
+
+        expect(screen.queryByRole('list')).toBeNull();
     });
 });

@@ -8,5 +8,5 @@ export namespace Post {
         categories: Categories[];
     };
 
-    export type Categories = 'add categories here in the future..';
+    export type Categories = 'TypeScript' | 'JavaScript' | 'NextJs' | 'CI/CD';
 }
