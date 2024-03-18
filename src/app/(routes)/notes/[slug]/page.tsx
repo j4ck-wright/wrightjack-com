@@ -53,7 +53,7 @@ export default function Post({ params }: { params: { slug: string } }) {
 
     const { metadata, content } = data;
 
-    if (!metadata.title) {
+    if (!metadata.title || !metadata.published) {
         notFound();
     }
 
