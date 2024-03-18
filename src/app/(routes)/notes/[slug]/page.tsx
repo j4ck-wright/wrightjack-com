@@ -10,7 +10,7 @@ import { readdirSync } from 'fs';
 import rehypePrettyCode from 'rehype-pretty-code';
 
 const rehypePrettyCodeOptions = {
-    theme: 'one-dark-pro',
+    theme: 'ayu-dark',
 };
 
 const options = {
