@@ -3,6 +3,7 @@ import '@/styles/article.css';
 import ArticleHeader from '@/components/ArticleComponents/ArticleHeader';
 import DualImage from '@/components/ArticleComponents/DualImage';
 import { MDXRemote } from 'next-mdx-remote/rsc';
+import type { Metadata } from 'next';
 import SingleImageStretch from '@/components/ArticleComponents/SingleImageStretch';
 import { getPostBySlug } from '@/PostHandler';
 import { notFound } from 'next/navigation';
@@ -19,6 +20,23 @@ const options = {
         remarkPlugins: [],
     },
 };
+
+export function generateMetadata({
+    params,
+}: {
+    params: { slug: string };
+}): Metadata {
+    const data = getPostBySlug(params.slug);
+
+    const { metadata } = data;
+
+    return {
+        authors: { name: metadata.author },
+        description: metadata.description,
+        keywords: metadata.categories,
+        title: metadata.title,
+    };
+}
 
 export async function generateStaticParams() {
     const files = readdirSync('posts/');
