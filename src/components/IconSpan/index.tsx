@@ -14,16 +14,14 @@ export default function IconSpan({
     'aria-hidden': ariaHidden = true,
 }: Props) {
     return (
-        <>
-            <div className="flex items-center gap-2">
-                <Icon
-                    width={'20px'}
-                    height={'20px'}
-                    className="align-bottom"
-                    aria-hidden={ariaHidden}
-                />
-                <span aria-label={ariaLabel}>{text}</span>
-            </div>
-        </>
+        <div className="flex items-center gap-2">
+            <Icon
+                width={'20px'}
+                height={'20px'}
+                className="align-bottom"
+                aria-hidden={ariaHidden}
+            />
+            <span aria-label={ariaLabel}>{text}</span>
+        </div>
     );
 }
