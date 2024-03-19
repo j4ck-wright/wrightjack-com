@@ -6,10 +6,17 @@ const headerFixture: Post.Metadata = {
     author: 'Jack Wright',
     categories: [],
     date: '2024/03/16',
+    description: 'Lorem ipsum',
     minutes_to_read: 14,
     published: true,
     title: 'Article Fixture Spec',
 };
+
+vi.mock('@/components/CategoryTabs', () => ({
+    default: () => {
+        return <div>CategoryTabs</div>;
+    },
+}));
 
 describe('ArticleHeader', () => {
     it('Renders correctly', () => {
@@ -27,10 +34,7 @@ describe('ArticleHeader', () => {
         screen.getByText(headerFixture.author);
         screen.getByText(`${headerFixture.minutes_to_read} min read`);
         screen.getByText('Saturday, 16 Mar 2024');
-        screen.getByText('JavaScript');
-        screen.getByText('CI/CD');
-        screen.getByText('NextJs');
-        screen.getByText('TypeScript');
+        screen.getByText('CategoryTabs');
 
         expect(screen.getByRole('img').getAttribute('src')).toEqual(
             'author-img'

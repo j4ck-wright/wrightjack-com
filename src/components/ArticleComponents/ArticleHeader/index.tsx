@@ -1,6 +1,8 @@
+import CategoryTabs from '@/components/CategoryTabs';
+import IconSpan from '@/components/IconSpan';
 import { Post } from '@/types/post';
 import { SlClock } from 'react-icons/sl';
-import { getCategoryColor } from '@/utils/categoryColor';
+import { formatDate } from '@/utils/dateFormatter';
 
 type Author = {
     name?: string;
@@ -13,21 +15,6 @@ type Props = {
     date: string;
     timeToRead: number;
     categories?: Post.Categories[];
-};
-
-const formatDate = (date: string) => {
-    const newDate = new Date(date).toLocaleString('en-gb', {
-        day: 'numeric',
-        month: 'short',
-        weekday: 'long',
-        year: 'numeric',
-    });
-
-    if (newDate === 'Invalid Date') {
-        return '';
-    }
-
-    return newDate;
 };
 
 export default function ArticleHeader({
@@ -63,43 +50,14 @@ export default function ArticleHeader({
                 </div>
 
                 {timeToRead && (
-                    <div className="flex items-center gap-2">
-                        <SlClock
-                            width={'20px'}
-                            height={'20px'}
-                            className="align-bottom"
-                            aria-hidden
-                        />
-                        <span className="text-[#5d5d5d]">
-                            {timeToRead} min read
-                        </span>
-                    </div>
+                    <IconSpan Icon={SlClock} text={`${timeToRead} min read`} />
                 )}
             </div>
 
             {categories && (
-                <ul
-                    aria-label="categories"
-                    className="pt-4 flex flex-wrap gap-2"
-                >
-                    {categories.map((category, index) => {
-                        const { background, border, text } =
-                            getCategoryColor(category);
-                        return (
-                            <li
-                                className="py-1 px-3 text-sm border-b-4"
-                                style={{
-                                    background: background,
-                                    borderColor: border,
-                                    color: text,
-                                }}
-                                key={index}
-                            >
-                                {category}
-                            </li>
-                        );
-                    })}
-                </ul>
+                <div className="pt-4">
+                    <CategoryTabs categories={categories} />
+                </div>
             )}
         </header>
     );
