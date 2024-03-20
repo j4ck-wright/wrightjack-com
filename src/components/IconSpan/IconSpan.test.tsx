@@ -10,8 +10,8 @@ describe('IconSpan', () => {
     it('Renders correctly', () => {
         render(<IconSpan Icon={IconStub} text="Hello World!" />);
 
-        screen.findByText('Icon');
-        screen.findByText('Hello World!');
+        screen.getByText('Icon');
+        screen.getByText('Hello World!');
     });
 
     it('Adds aria-label if defined', () => {
