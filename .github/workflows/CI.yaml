@@ -1,0 +1,39 @@
+name: Integration Checks
+
+on:
+    push:
+        branches: [main]
+    pull_request:
+        branches: [main]
+
+jobs:
+    integration-checks:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: setup node
+              uses: actions/setup-node@v4
+              with:
+                  node-version: '20.x'
+
+            - name: make env file
+              uses: SpicyPizza/create-envfile@v2.0
+              with:
+                  envkey_DEBUG: false
+                  envkey_BASE_URL: ${{ vars.BASE_URL }}
+                  envkey_PROTOCOL: ${{ vars.PROTOCOL }}
+                  file_name: .env.local
+
+            - name: install dependencies
+              run: yarn install --frozen-lockfile
+
+            - name: lint
+              run: yarn format
+
+            - name: unit tests
+              run: yarn test
+
+            - name: build
+              run: yarn build

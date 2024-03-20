@@ -1,28 +1,37 @@
 ---
-title: example 123
+title: Using MDX with Next JS
+slug: example
 author: Jack Wright
-published: false
+published: true
 minutes_to_read: 10
 description: 'Example description here... Lorem ipsum..'
 date: '2024/01/02'
+categories: ['TypeScript', 'NextJs', 'JavaScript', 'CI/CD']
 ---
-
-## This is an example Post
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ac felis donec et odio pellentesque diam. Pellentesque diam volutpat commodo sed egestas egestas fringilla. Habitasse platea dictumst vestibulum rhoncus.
 
 <SingleImageStretch
     src="/post-assets/example/trees.jpeg"
     caption="Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+    priority={true}
 />
 
-### Header 3
+## Header 2
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mattis aliquam faucibus purus in. Tellus cras adipiscing enim eu turpis. Sed augue lacus viverra vitae. Elit pellentesque habitant morbi tristique senectus et. Tempor orci eu lobortis elementum nibh tellus molestie. Facilisis magna etiam tempor orci eu lobortis elementum. Mi eget mauris pharetra et ultrices neque ornare aenean. Porttitor lacus luctus accumsan tortor posuere ac ut. Ac turpis egestas maecenas pharetra convallis posuere morbi leo urna. Elit ut aliquam purus sit amet luctus venenatis lectus.
 
 Mattis aliquam faucibus purus in massa. Et malesuada fames ac turpis egestas integer eget aliquet nibh. Quis vel eros donec ac odio. Amet justo donec enim diam vulputate ut pharetra sit. Risus viverra adipiscing at in tellus integer feugiat. Nunc pulvinar sapien et ligula. Nec tincidunt praesent semper feugiat nibh sed pulvinar. Platea dictumst vestibulum rhoncus est pellentesque elit. Cras fermentum odio eu feugiat pretium nibh. Nisl vel pretium lectus quam id leo in.
 
-### Header 4
+<DualImage
+    leftSrc="/post-assets/example/trees.jpeg"
+    leftAlt="left-alt"
+    leftCaption="Lorem ipsum dolor sit amet, consectetur "
+    rightSrc="/post-assets/example/trees.jpeg"
+    rightAlt="right-alt"
+/>
+
+### Header 3
 
 Aenean sed adipiscing diam donec adipiscing tristique risus. Purus in massa tempor nec feugiat nisl pretium. In ante metus dictum at. Purus gravida quis blandit turpis cursus in hac habitasse. Turpis egestas integer eget aliquet nibh praesent tristique. Bibendum at varius vel pharetra. Arcu cursus euismod quis viverra nibh cras pulvinar. Ornare quam viverra orci sagittis. Amet mauris commodo quis imperdiet. Aliquam etiam erat velit scelerisque in dictum non. Tristique magna sit amet purus gravida quis. Condimentum lacinia quis vel eros donec. Sed enim ut sem viverra aliquet eget sit amet tellus.
 
@@ -30,11 +39,11 @@ Lectus nulla at volutpat diam. Id aliquet risus feugiat in ante metus dictum at.
 
 Ac turpis egestas integer eget aliquet nibh praesent tristique. Hac habitasse platea dictumst vestibulum rhoncus est. Dolor magna eget est lorem. Nulla aliquet porttitor lacus luctus accumsan tortor posuere ac. Arcu non sodales neque sodales ut etiam. Ac odio tempor orci dapibus. Pretium fusce id velit ut tortor pretium viverra suspendisse. Massa tincidunt dui ut ornare lectus sit amet est placerat. Auctor eu augue ut lectus arcu bibendum at varius vel. Eget gravida cum sociis natoque penatibus. Donec et odio pellentesque diam volutpat commodo sed egestas egestas. Vitae proin sagittis nisl rhoncus mattis rhoncus. Justo nec ultrices dui sapien eget mi. Aliquam eleifend mi in nulla posuere sollicitudin aliquam. Viverra ipsum nunc aliquet bibendum enim. Ultrices vitae auctor eu augue ut lectus arcu bibendum. Metus aliquam eleifend mi in nulla posuere. Mi ipsum faucibus vitae aliquet nec ullamcorper sit. Pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at.
 
-#### Header 5
+#### Header 4
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Fermentum dui faucibus in ornare. Ac turpis egestas sed tempus.
 
-```javascript {1-4, 8} caption="codeblock caption"
+```javascript
 function isPrime(number) {
     if (number <= 1) {
         return false;
@@ -55,5 +64,7 @@ function isPrime(number) {
     return true;
 }
 ```
+
+#### Header 4
 
 Or use formatted text e.g **strong** text
