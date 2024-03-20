@@ -6,6 +6,7 @@ on:
 
 jobs:
     integration-checks:
+        name: Integration Checks
         runs-on: ubuntu-latest
 
         steps:
