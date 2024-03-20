@@ -2,6 +2,7 @@ export namespace Post {
     export type Metadata = {
         title: string;
         author: string;
+        slug: string;
         date: string;
         description: string;
         published: boolean;
