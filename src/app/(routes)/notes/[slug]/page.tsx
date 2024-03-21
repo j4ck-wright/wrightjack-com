@@ -11,7 +11,7 @@ import { notFound } from 'next/navigation';
 import { readdirSync } from 'fs';
 import rehypePrettyCode from 'rehype-pretty-code';
 
-export const components = { DualImage, NotaBene, SingleImageStretch };
+const components = { DualImage, NotaBene, SingleImageStretch };
 
 const rehypePrettyCodeOptions = {
     theme: 'ayu-dark',

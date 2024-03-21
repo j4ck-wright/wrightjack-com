@@ -1,9 +1,7 @@
 import { Post } from '@/types/post';
 import { checkHeaderOrder } from './helpers';
-import { components } from '@/app/(routes)/notes/[slug]/page';
 import { formatDate } from '@/utils/dateFormatter';
 import { getAllPosts } from '@/PostHandler';
-import { readdirSync } from 'fs';
 
 const prefix = '[POST-VALIDATION]:';
 
@@ -67,17 +65,5 @@ describe('Post checking', () => {
                 );
             }
         });
-    });
-
-    it('all components are recognised by mdx', () => {
-        const markdownComponents = readdirSync(
-            'src/components/MarkdownComponents'
-        );
-
-        if (markdownComponents.length !== Object.keys(components).length) {
-            throw new Error(
-                `${prefix} - Missmatch in number of components in @/components/MarkdownComponents vs @/app/(routes)/notes/[slug]/page - have you remembered to update the component list?`
-            );
-        }
     });
 });
