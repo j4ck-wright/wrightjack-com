@@ -11,6 +11,8 @@ import { notFound } from 'next/navigation';
 import { readdirSync } from 'fs';
 import rehypePrettyCode from 'rehype-pretty-code';
 
+export const components = { DualImage, NotaBene, SingleImageStretch };
+
 const rehypePrettyCodeOptions = {
     theme: 'ayu-dark',
 };
@@ -74,7 +76,7 @@ export default function Post({ params }: { params: { slug: string } }) {
             <MDXRemote
                 source={content}
                 options={options}
-                components={{ DualImage, NotaBene, SingleImageStretch }}
+                components={components}
             />
         </article>
     );
