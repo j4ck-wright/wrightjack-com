@@ -1,5 +1,5 @@
 import { FaRegCalendar } from 'react-icons/fa6';
-import IconSpan from '../IconSpan';
+import IconSpan from '../../UI/IconSpan';
 import { Post } from '@/types/post';
 import { SlClock } from 'react-icons/sl';
 import { formatDate } from '@/utils/dateFormatter';

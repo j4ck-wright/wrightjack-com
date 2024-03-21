@@ -12,7 +12,7 @@ const headerFixture: Post.Metadata = {
     title: 'Article Fixture Spec',
 };
 
-vi.mock('@/components/CategoryTabs', () => ({
+vi.mock('@/components/UI/CategoryTabs', () => ({
     default: () => {
         return <div>CategoryTabs</div>;
     },

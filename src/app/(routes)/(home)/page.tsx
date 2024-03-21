@@ -1,4 +1,4 @@
-import RecentArticles from '@/components/RecentArticles';
+import RecentArticles from '@/components/ArticleComponents/RecentArticles';
 import { getAllPosts } from '@/PostHandler';
 
 export default function Home() {

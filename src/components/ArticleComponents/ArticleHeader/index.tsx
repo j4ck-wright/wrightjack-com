@@ -1,5 +1,5 @@
-import CategoryTabs from '@/components/CategoryTabs';
-import IconSpan from '@/components/IconSpan';
+import CategoryTabs from '@/components/UI/CategoryTabs';
+import IconSpan from '@/components/UI/IconSpan';
 import { Post } from '@/types/post';
 import { SlClock } from 'react-icons/sl';
 import { formatDate } from '@/utils/dateFormatter';

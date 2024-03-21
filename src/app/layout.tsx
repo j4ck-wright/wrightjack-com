@@ -1,8 +1,8 @@
 import '@/styles/globals.css';
 
-import Footer from '@/components/Footer';
+import Footer from '@/components/UI/Footer';
 import type { Metadata } from 'next';
-import Navbar from '@/components/Navbar';
+import Navbar from '@/components/UI/Navbar';
 import { UI } from '@/types/ui';
 import { Urbanist } from 'next/font/google';
 

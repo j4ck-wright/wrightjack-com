@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import DualImage from '.';
 
-vi.mock('@/components/ArticleComponents/SingleImageStretch', () => ({
+vi.mock('@/components/MarkdownComponents/SingleImageStretch', () => ({
     default: () => {
         return <div>SingleImage</div>;
     },

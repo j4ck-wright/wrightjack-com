@@ -25,7 +25,7 @@ const articleFixture: Post.Metadata[] = [
     },
 ];
 
-vi.mock('@/components/ArticleCard', () => ({
+vi.mock('@/components/ArticleComponents/ArticleCard', () => ({
     default: () => {
         return <div>ArticleCard</div>;
     },
