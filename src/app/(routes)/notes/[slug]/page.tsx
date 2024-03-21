@@ -4,6 +4,7 @@ import ArticleHeader from '@/components/ArticleComponents/ArticleHeader';
 import DualImage from '@/components/MarkdownComponents/DualImage';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import type { Metadata } from 'next';
+import NotaBene from '@/components/MarkdownComponents/NotaBene';
 import SingleImageStretch from '@/components/MarkdownComponents/SingleImageStretch';
 import { getPostBySlug } from '@/PostHandler';
 import { notFound } from 'next/navigation';
@@ -73,7 +74,7 @@ export default function Post({ params }: { params: { slug: string } }) {
             <MDXRemote
                 source={content}
                 options={options}
-                components={{ DualImage, SingleImageStretch }}
+                components={{ DualImage, NotaBene, SingleImageStretch }}
             />
         </article>
     );
