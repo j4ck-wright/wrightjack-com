@@ -61,7 +61,7 @@ export default function Post({ params }: { params: { slug: string } }) {
         <article className="px-4 xl:px-0">
             <ArticleHeader
                 author={{
-                    imageSrc: `/post-assets/authors/${metadata.author}.jpeg`,
+                    imageSrc: `/post-assets/authors/${metadata.author}.webp`,
                     name: metadata.author,
                 }}
                 date={metadata.date}
